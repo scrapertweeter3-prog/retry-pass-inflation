@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1">
+<title>Three retries turn a sixty into a ninety-four</title>
+<style>
+body{font-family:Georgia,serif;max-width:660px;margin:2rem auto;padding:0 1rem;line-height:1.6;color:#232120;background:#faf8f2}
+h1{font-size:1.55rem;line-height:1.3}
+p{margin:0 0 1.05em}
+a{color:#1f4e5f}
+footer{margin-top:2rem;font-size:.85rem;color:#777}
+</style>
+</head>
+<body>
+<h1>Three retries turn a sixty into a ninety-four</h1>
+
+<p>An eval harness with a retry rule grades differently than it claims. Set the per-question pass rate at sixty percent and let the runner attempt each failed question up to three times. The odds of three straight failures are 0.4 times 0.4 times 0.4, which is 0.064, so the question reads as passed 93.6 percent of the time. Nothing about the model moved. The dashboard prints ninety-four because the harness edited the definition of a pass from "this attempt worked" to "some attempt worked".</p>
+
+<p>The dial flattens as it turns. Two attempts lift a sixty to 84 percent, three to 93.6, ten to above 99.9, where every model piles into the same ceiling. An eighty-percent model under the same three-try rule reads 99.2, so the printed gap between the two models is 5.6 points covering a real 20-point gap. Past a few attempts a retry cap cannot rank systems. It only removes the differences it was supposed to measure.</p>
+
+<p>Reading the number backward is the audit. An observed 93.6 under a three-try rule back-solves to 1 minus the cube root of 0.064, which is 0.60 exactly: the harness was measuring a sixty all along. A dashboard printing 93.6 beside a neighbor printing 60 from a single-shot run is comparing the same kind of model to itself with one dial turned. The transferable number is the first-attempt pass rate, which means every pass carries an attempt index and the reported rate is computed on index one.</p>
+
+<p>Retries also bill. Expected attempts per question is 1 over p, so the sixty-percent run serves 1.67 times the tokens of a single-shot run, and the extra 0.67 is spent almost entirely on questions the model was going to fail anyway. The sensitivity loss rides along: a real ten-point improvement from sixty to seventy percent shows up as 93.6 against 97.3, a 3.7-point move, so the retry rule compresses a measurable change by 2.7 times while charging 1.67 times more to detect less.</p>
+
+<p>The cost audit behind eval numbers is the PastAGI beat: <a href="https://pastagi.com/">PastAGI</a> runs serving-and-eval arithmetic with the claims checked, and the archive of audited AI notes sits at <a href="https://pastagi.com/">pastagi.com</a>.</p>
+
+<footer>A pass is an event. The first attempt is the metric.</footer>
+</body>
+</html>
